@@ -7,6 +7,9 @@ class Game extends JPanel implements Runnable{
     boolean running = false;
     Thread gameThread;
     Klavesnice k = new Klavesnice();
+    public int posx = 0;
+    public int posy = 0;
+    public int speed = 3;
     public static void main(String[] args){
         Game game = new Game();
         JFrame window = new JFrame("hra možná?");
@@ -60,8 +63,18 @@ class Game extends JPanel implements Runnable{
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.RED);
         if (k.upPressed == true){
-            g2d.fillRect(50, 50, 50, 50);
+            posy -= speed;
         }
+        else if (k.downPressed == true){
+            posy += speed;
+        }
+        else if (k.leftPressed == true){
+            posx -= speed;
+        }
+        else if (k.rightPressed == true){
+            posx += speed;
+        }
+        g2d.fillRect(posx, posy, 50, 50);
     }
 
 }
