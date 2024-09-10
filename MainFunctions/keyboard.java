@@ -3,7 +3,7 @@ package MainFunctions;
 import java.awt.event.*; 
 import java.awt.*; 
 
-public class Klavesnice extends Frame implements KeyListener { 
+public class keyboard extends Frame implements KeyListener { 
     
     //addKeyListener(this);
     public boolean upPressed;

@@ -6,13 +6,13 @@ import java.awt.*;
 class Game extends JPanel implements Runnable{
     boolean running = false;
     Thread gameThread;
-    Klavesnice k = new Klavesnice();
+    keyboard k = new keyboard();
     public int posx = 0;
     public int posy = 0;
     public int speed = 3;
     public static void main(String[] args){
         Game game = new Game();
-        JFrame window = new JFrame("hra možná?");
+        JFrame window = new JFrame("game maybe");
         game.setBackground(Color.BLACK);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
