@@ -41,15 +41,15 @@ class Game extends JPanel implements Runnable{
         while (running){
             timemeasure = System.nanoTime();
             thistime = System.nanoTime();
+            if (timemeasure >= lastsecframes + 1000000000){
+                System.out.println(framecount);
+                framecount = 0;
+                lastsecframes = timemeasure;
+            }
             if ((thistime - lastTime) >= frame){
                 update();
                 lastTime = thistime;
                 framecount++;
-                if (timemeasure >= lastsecframes + 1000000000){
-                    System.out.println(framecount);
-                    framecount = 0;
-                    lastsecframes = timemeasure;
-                }
             }
         }
     }
