@@ -10,6 +10,9 @@ class Game extends JPanel implements Runnable{
     public int posx = 0;
     public int posy = 0;
     public int speed = 3;
+    public float velocity = 0;
+    public String lastdirection; 
+
     public static void main(String[] args){
         Game game = new Game();
         JFrame window = new JFrame("game maybe");
@@ -63,16 +66,35 @@ class Game extends JPanel implements Runnable{
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.RED);
         if (k.upPressed == true){
-            posy -= speed;
+            if (velocity <= 4){
+                velocity += 0.1f;
+            }
+            posy -= speed + velocity;
+            lastdirection = "up";
         }
         else if (k.downPressed == true){
-            posy += speed;
+            if (velocity <= 4){
+                velocity += 0.1f;
+            }
+            posy += speed + velocity;
+            lastdirection = "down";
         }
         else if (k.leftPressed == true){
-            posx -= speed;
+            if (velocity <= 4){
+                velocity += 0.1f;
+            }
+            posx -= speed + velocity;
+            lastdirection = "left";
         }
         else if (k.rightPressed == true){
-            posx += speed;
+            if (velocity <= 4){
+                velocity += 0.1f;
+            }
+            posx += speed + velocity;
+            lastdirection = "right";
+        }
+        else if (k.rightPressed == false && k.leftPressed == false && k.downPressed == false && k.upPressed == false){
+            velocity = 0;
         }
         g2d.fillRect(posx, posy, 50, 50);
     }
