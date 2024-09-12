@@ -76,7 +76,6 @@ class Game extends JPanel implements Runnable{
     }
 
     public void paintComponent(Graphics g){
-        int max = 10;
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         Graphics2D g3d = (Graphics2D) g;
